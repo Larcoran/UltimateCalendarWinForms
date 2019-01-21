@@ -10,7 +10,7 @@ using System.Windows;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
-namespace UltimateCalendar.Models
+namespace UltimateCalendarWinForms.Models
 {
     public class DataBaseConnection
     {

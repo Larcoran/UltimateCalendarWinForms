@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UltimateCalendar.Models
+namespace UltimateCalendarWinForms.Models
 {
     public class PasswordDecrypter
     {

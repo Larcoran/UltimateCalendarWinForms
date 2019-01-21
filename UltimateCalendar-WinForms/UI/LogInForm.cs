@@ -7,16 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UltimateCalendar.Models;
+using UltimateCalendarWinForms.Models;
 
-namespace UltimateCalendar.UI
+namespace UltimateCalendarWinForms.UI
 {
     public partial class LogInForm : Form
     {
         public LogInForm()
         {
             InitializeComponent();
+        }
 
+        private IDataHandler dataHandler;
+        public LogInForm(IDataHandler dataHandler)
+        {
+            InitializeComponent();
+            this.dataHandler = dataHandler;
         }
 
         private void button1_Click(object sender, EventArgs e)

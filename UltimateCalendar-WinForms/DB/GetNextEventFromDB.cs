@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using UltimateCalendar.Models;
-using UltimateCalendar.ViewModels;
+using UltimateCalendarWinForms.Models;
+using UltimateCalendarWinForms.ViewModels;
 
-namespace UltimateCalendar.Models
+namespace UltimateCalendarWinForms.Models
 {
     class GetNextEventFromDB
     {

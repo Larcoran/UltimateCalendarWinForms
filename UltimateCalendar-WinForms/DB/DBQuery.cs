@@ -6,26 +6,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UltimateCalendar.Models
+namespace UltimateCalendarWinForms.Models
 {
-    abstract class DBQuery<AnyType>
+    abstract class DBQuery
     {
         protected MySqlConnection connection = null;
         protected MySqlCommand command = null;
 
         private void Open()
         {
-            connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["GCPMySqlDB"].ConnectionString);
+            connection = new connection(ConfigurationManager.ConnectionStrings["GCPMySqlDB"].ConnectionString);
             connection.Open();
             command = new MySqlCommand();
             command.Connection = connection;
         }
 
-        public void Execute(AnyType obj)
+        public void Execute()
         {
             Open();
 
-            ExecuteCommand(obj);
+            ExecuteCommand();
 
             Close();
         }
@@ -35,6 +35,6 @@ namespace UltimateCalendar.Models
             connection.Dispose();
         }
 
-        public abstract void ExecuteCommand(AnyType obj);
+        public abstract void ExecuteCommand();
     }
 }

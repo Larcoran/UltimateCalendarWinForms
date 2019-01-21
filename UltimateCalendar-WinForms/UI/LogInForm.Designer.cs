@@ -1,15 +1,9 @@
-﻿using UltimateCalendar.Models;
+﻿using UltimateCalendarWinForms.Models;
 
-namespace UltimateCalendar.UI
+namespace UltimateCalendarWinForms.UI
 {
     partial class LogInForm
     {
-        private IDataHandler dataHandler;
-        public LogInForm(IDataHandler dataHandler )
-        {
-            this.dataHandler = dataHandler;
-        }
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -37,41 +31,75 @@ namespace UltimateCalendar.UI
         private void InitializeComponent()
         {
             this.emailTB = new System.Windows.Forms.TextBox();
+            this.logInBTN = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.passwordTB = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.registerBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // emailTB
             // 
-            this.emailTB.Location = new System.Drawing.Point(142, 195);
+            this.emailTB.Location = new System.Drawing.Point(15, 25);
             this.emailTB.Name = "emailTB";
             this.emailTB.Size = new System.Drawing.Size(100, 20);
             this.emailTB.TabIndex = 0;
             // 
+            // logInBTN
+            // 
+            this.logInBTN.Location = new System.Drawing.Point(81, 51);
+            this.logInBTN.Name = "logInBTN";
+            this.logInBTN.Size = new System.Drawing.Size(75, 23);
+            this.logInBTN.TabIndex = 2;
+            this.logInBTN.Text = "Log In";
+            this.logInBTN.UseVisualStyleBackColor = true;
+            this.logInBTN.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Email:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(121, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Password";
+            // 
             // passwordTB
             // 
-            this.passwordTB.Location = new System.Drawing.Point(282, 195);
+            this.passwordTB.Location = new System.Drawing.Point(124, 25);
             this.passwordTB.Name = "passwordTB";
+            this.passwordTB.PasswordChar = '*';
             this.passwordTB.Size = new System.Drawing.Size(100, 20);
-            this.passwordTB.TabIndex = 1;
+            this.passwordTB.TabIndex = 5;
             // 
-            // button1
+            // registerBTN
             // 
-            this.button1.Location = new System.Drawing.Point(229, 233);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.registerBTN.Location = new System.Drawing.Point(81, 81);
+            this.registerBTN.Name = "registerBTN";
+            this.registerBTN.Size = new System.Drawing.Size(75, 23);
+            this.registerBTN.TabIndex = 6;
+            this.registerBTN.Text = "Register";
+            this.registerBTN.UseVisualStyleBackColor = true;
             // 
             // LogInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 406);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(238, 113);
+            this.Controls.Add(this.registerBTN);
             this.Controls.Add(this.passwordTB);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.logInBTN);
             this.Controls.Add(this.emailTB);
             this.Name = "LogInForm";
             this.Text = "LogIn";
@@ -83,7 +111,10 @@ namespace UltimateCalendar.UI
         #endregion
 
         private System.Windows.Forms.TextBox emailTB;
+        private System.Windows.Forms.Button logInBTN;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox passwordTB;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button registerBTN;
     }
 }

@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,26 +48,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\AddNewEventToDB.cs" />
-    <Compile Include="Models\DataBaseConnection.cs" />
-    <Compile Include="Models\DBQuery.cs" />
-    <Compile Include="Models\DBSelection.cs" />
+    <Compile Include="DB\AddNewEventToDB.cs" />
+    <Compile Include="DB\DataBaseConnection.cs" />
+    <Compile Include="DB\DBQuery.cs" />
+    <Compile Include="DB\DBSelection.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventBuilder.cs" />
     <Compile Include="Models\EventTypes.cs" />
-    <Compile Include="Models\GetNextEventFromDB.cs" />
-    <Compile Include="Models\GetUserFromDB.cs" />
+    <Compile Include="DB\GetNextEventFromDB.cs" />
+    <Compile Include="DB\GetUserFromDB.cs" />
     <Compile Include="Models\IDataHandler.cs" />
-    <Compile Include="Models\LogIn.cs" />
     <Compile Include="Models\PasswordDecrypter.cs" />
     <Compile Include="Models\PasswordEncrypter.cs" />
-    <Compile Include="Models\RegisterUserInDb.cs" />
+    <Compile Include="DB\RegisterUserInDb.cs" />
     <Compile Include="Models\SQLDataHandler.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserRegistration.cs" />
@@ -89,7 +90,9 @@
     <EmbeddedResource Include="UI\LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DBConnections.config" />
+    <None Include="DBConnections.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UltimateCalendar.ViewModels
+namespace UltimateCalendarWinForms.ViewModels
 {
     public class Event
     {

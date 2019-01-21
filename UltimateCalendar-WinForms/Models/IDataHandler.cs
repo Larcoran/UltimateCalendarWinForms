@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UltimateCalendar.ViewModels;
+using UltimateCalendarWinForms.ViewModels;
 
-namespace UltimateCalendar.Models
+namespace UltimateCalendarWinForms.Models
 {
     public interface IDataHandler
     {

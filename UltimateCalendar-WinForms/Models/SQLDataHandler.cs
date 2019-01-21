@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UltimateCalendar.ViewModels;
+using UltimateCalendarWinForms.Models;
+using UltimateCalendarWinForms.ViewModels;
 
-namespace UltimateCalendar.Models
+namespace UltimateCalendarWinForms.Models
 {
     public class SQLDataHandler : IDataHandler
     {
@@ -17,7 +18,17 @@ namespace UltimateCalendar.Models
 
         public bool CredentialsCheck(string email, string password, out User loggedInUser)
         {
-            throw new NotImplementedException();
+            GetUserFromDB getUser = new GetUserFromDB();
+            loggedInUser = getUser.GetUser(password, email);
+            if(email!=loggedInUser.Email)
+            {
+                return false;
+            }
+            if(password!=loggedInUser.Password)
+            {
+                return false;
+            }
+            return true;
         }
 
         public List<Event> GetEvents(DateTime dateForEvents, User userForEvents)

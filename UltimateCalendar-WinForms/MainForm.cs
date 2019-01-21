@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UltimateCalendarWinForms.Models;
+using UltimateCalendarWinForms.UI;
 
 namespace UltimateCalendar_WinForms
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+            LogInForm login = new LogInForm(new SQLDataHandler());
+            login.ShowDialog();
         }
     }
 }
