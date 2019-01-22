@@ -39,7 +39,7 @@ namespace UltimateCalendarWinForms.UI
             User user = new User();
             if(dataHandler.CredentialsCheck(emailTB.Text, passwordTB.Text, out user))
             {
-                CalendarForm calendar = new CalendarForm();
+                CalendarForm calendar = new CalendarForm(new SQLDataHandler(),user);
                 calendar.Show();
                 this.Hide();
             }

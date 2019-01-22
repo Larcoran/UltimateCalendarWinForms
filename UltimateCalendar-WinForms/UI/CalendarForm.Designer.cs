@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addEventBTN = new System.Windows.Forms.Button();
+            this.calendar = new System.Windows.Forms.MonthCalendar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.eventsLB = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
@@ -39,8 +39,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.monthCalendar1);
+            this.groupBox1.Controls.Add(this.addEventBTN);
+            this.groupBox1.Controls.Add(this.calendar);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(251, 345);
@@ -48,28 +48,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // monthCalendar1
+            // addEventBTN
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(12, 25);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.addEventBTN.Location = new System.Drawing.Point(87, 199);
+            this.addEventBTN.Name = "addEventBTN";
+            this.addEventBTN.Size = new System.Drawing.Size(75, 23);
+            this.addEventBTN.TabIndex = 1;
+            this.addEventBTN.Text = "Add event";
+            this.addEventBTN.UseVisualStyleBackColor = true;
+            this.addEventBTN.Click += new System.EventHandler(this.addEventBTN_Click);
             // 
-            // button1
+            // calendar
             // 
-            this.button1.Location = new System.Drawing.Point(87, 199);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add event";
-            this.button1.UseVisualStyleBackColor = true;
+            this.calendar.Location = new System.Drawing.Point(12, 25);
+            this.calendar.MaxSelectionCount = 1;
+            this.calendar.Name = "calendar";
+            this.calendar.TabIndex = 0;
+            this.calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendar_DateChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.eventsLB);
             this.groupBox2.Location = new System.Drawing.Point(271, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(266, 345);
+            this.groupBox2.Size = new System.Drawing.Size(339, 345);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
@@ -79,14 +81,14 @@
             this.eventsLB.FormattingEnabled = true;
             this.eventsLB.Location = new System.Drawing.Point(6, 25);
             this.eventsLB.Name = "eventsLB";
-            this.eventsLB.Size = new System.Drawing.Size(254, 303);
+            this.eventsLB.Size = new System.Drawing.Size(327, 303);
             this.eventsLB.TabIndex = 0;
             // 
             // CalendarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 366);
+            this.ClientSize = new System.Drawing.Size(622, 366);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "CalendarForm";
@@ -100,8 +102,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Button addEventBTN;
+        private System.Windows.Forms.MonthCalendar calendar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox eventsLB;
     }

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UltimateCalendarWinForms.Models;
-using UltimateCalendarWinForms.ViewModels;
 
 namespace UltimateCalendarWinForms.Models
 {
@@ -15,7 +14,8 @@ namespace UltimateCalendarWinForms.Models
 
         public void AddEvent(Event @event)
         {
-            throw new NotImplementedException();
+            AddNewEventToDB addNewEvent = new AddNewEventToDB();
+            addNewEvent.Add(@event);
         }
 
         public bool CredentialsCheck(string email, string password, out User loggedInUser)
@@ -37,7 +37,6 @@ namespace UltimateCalendarWinForms.Models
         {
             GetEventsFromDB getEvents = new GetEventsFromDB();
             return getEvents.Get(dateForEvents, userForEvents.UserID);
-
         }
 
         public void RegisterUser(User user)

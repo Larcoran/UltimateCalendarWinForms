@@ -55,7 +55,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventBuilder.cs" />
     <Compile Include="Models\EventTypes.cs" />
-    <Compile Include="DB\GetNextEventFromDB.cs" />
+    <Compile Include="DB\GetEventsFromDB.cs" />
     <Compile Include="DB\GetUserFromDB.cs" />
     <Compile Include="Models\IDataHandler.cs" />
     <Compile Include="Models\PasswordDecrypter.cs" />
@@ -78,6 +78,12 @@
     <Compile Include="UI\LogInForm.Designer.cs">
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\NewEventForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\NewEventForm.Designer.cs">
+      <DependentUpon>NewEventForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NewEventForm.resx">
+      <DependentUpon>NewEventForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
