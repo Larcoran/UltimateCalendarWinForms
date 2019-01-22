@@ -43,17 +43,17 @@ namespace UltimateCalendarWinForms.UI
             this.emailTB.Location = new System.Drawing.Point(15, 25);
             this.emailTB.Name = "emailTB";
             this.emailTB.Size = new System.Drawing.Size(100, 20);
-            this.emailTB.TabIndex = 0;
+            this.emailTB.TabIndex = 1;
             // 
             // logInBTN
             // 
             this.logInBTN.Location = new System.Drawing.Point(81, 51);
             this.logInBTN.Name = "logInBTN";
             this.logInBTN.Size = new System.Drawing.Size(75, 23);
-            this.logInBTN.TabIndex = 2;
+            this.logInBTN.TabIndex = 3;
             this.logInBTN.Text = "Log In";
             this.logInBTN.UseVisualStyleBackColor = true;
-            this.logInBTN.Click += new System.EventHandler(this.button1_Click);
+            this.logInBTN.Click += new System.EventHandler(this.logInBTN_Click);
             // 
             // label1
             // 
@@ -79,16 +79,17 @@ namespace UltimateCalendarWinForms.UI
             this.passwordTB.Name = "passwordTB";
             this.passwordTB.PasswordChar = '*';
             this.passwordTB.Size = new System.Drawing.Size(100, 20);
-            this.passwordTB.TabIndex = 5;
+            this.passwordTB.TabIndex = 2;
             // 
             // registerBTN
             // 
             this.registerBTN.Location = new System.Drawing.Point(81, 81);
             this.registerBTN.Name = "registerBTN";
             this.registerBTN.Size = new System.Drawing.Size(75, 23);
-            this.registerBTN.TabIndex = 6;
+            this.registerBTN.TabIndex = 4;
             this.registerBTN.Text = "Register";
             this.registerBTN.UseVisualStyleBackColor = true;
+            this.registerBTN.Click += new System.EventHandler(this.registerBTN_Click);
             // 
             // LogInForm
             // 

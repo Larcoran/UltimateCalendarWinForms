@@ -10,6 +10,8 @@ namespace UltimateCalendarWinForms.Models
 {
     public class SQLDataHandler : IDataHandler
     {
+        PasswordEncrypter encrypter = new PasswordEncrypter();
+        PasswordDecrypter decrypter = new PasswordDecrypter();
 
         public void AddEvent(Event @event)
         {
@@ -19,12 +21,12 @@ namespace UltimateCalendarWinForms.Models
         public bool CredentialsCheck(string email, string password, out User loggedInUser)
         {
             GetUserFromDB getUser = new GetUserFromDB();
-            loggedInUser = getUser.GetUser(password, email);
+            loggedInUser = getUser.GetUser(encrypter.encryptPassword(password), email);
             if(email!=loggedInUser.Email)
             {
                 return false;
             }
-            if(password!=loggedInUser.Password)
+            if(encrypter.encryptPassword(password)!=loggedInUser.Password)
             {
                 return false;
             }
@@ -33,12 +35,15 @@ namespace UltimateCalendarWinForms.Models
 
         public List<Event> GetEvents(DateTime dateForEvents, User userForEvents)
         {
-            throw new NotImplementedException();
+            GetEventsFromDB getEvents = new GetEventsFromDB();
+            return getEvents.Get(dateForEvents, userForEvents.UserID);
+
         }
 
         public void RegisterUser(User user)
         {
-            throw new NotImplementedException();
+            RegisterUserInDb register = new RegisterUserInDb();
+            register.RegisterUserInDB(user.Name, user.Surname, user.DateOfBirth, user.Email, encrypter.encryptPassword(user.Password), DBSelection.MySql);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace UltimateCalendarWinForms.Models
 
         private void Open()
         {
-            connection = new connection(ConfigurationManager.ConnectionStrings["GCPMySqlDB"].ConnectionString);
+            connection = new MySqlConnection(ConfigurationManager.ConnectionStrings["GCPMySqlDB"].ConnectionString);
             connection.Open();
             command = new MySqlCommand();
             command.Connection = connection;

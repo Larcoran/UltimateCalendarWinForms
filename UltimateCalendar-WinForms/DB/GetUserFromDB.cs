@@ -12,17 +12,15 @@ namespace UltimateCalendarWinForms.Models
     class GetUserFromDB : DBQuery
     {
         private User user;
-        private PasswordEncrypter encrypter;
 
         public GetUserFromDB()
         {
             user = new User();
-            encrypter = new PasswordEncrypter();
         }
 
         public User GetUser(string password, string email)
         {
-            user.Password = encrypter.encryptPassword(password);
+            user.Password = password;
             user.Email = email;
             Execute();
             return user;
@@ -30,7 +28,6 @@ namespace UltimateCalendarWinForms.Models
 
         public override void ExecuteCommand()
         {
-            PasswordEncrypter encrypter = new PasswordEncrypter();
             command.CommandText = "SELECT * FROM users WHERE Email = @Email AND Password = @Password LIMIT 1;";
             command.Parameters.AddWithValue("@Email", user.Email);
             command.Parameters.AddWithValue("@Password", user.Password);

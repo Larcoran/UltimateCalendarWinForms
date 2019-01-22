@@ -8,17 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UltimateCalendarWinForms.Models;
-using UltimateCalendarWinForms.UI;
 
-namespace UltimateCalendar_WinForms
+namespace UltimateCalendar_WinForms.UI
 {
-    public partial class MainForm : Form
+    public partial class CalendarForm : Form
     {
-        public MainForm()
+        public CalendarForm()
         {
             InitializeComponent();
-            LogInForm login = new LogInForm(new SQLDataHandler());
-            login.ShowDialog();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            GetEventsFromDB getEvents = new GetEventsFromDB();
+
         }
     }
 }

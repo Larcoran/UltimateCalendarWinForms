@@ -11,56 +11,36 @@ using UltimateCalendarWinForms.ViewModels;
 
 namespace UltimateCalendarWinForms.Models
 {
-    class GetNextEventFromDB
+    class GetEventsFromDB : DBQuery
     {
-        DataBaseConnection DBConnection = new DataBaseConnection();
-        MySqlCommand command = new MySqlCommand();
-        MySqlConnection connection = new MySqlConnection();
         MySqlDataReader reader = null;
-        EventBuilder builder = null;
-        User loggedInUser;
-        public bool endOfData = false;
+        EventBuilder builder = new EventBuilder();
+        int userId;
+        DateTime date;
 
-        public GetNextEventFromDB(User loggedInUser)
+        List<Event> eventsToReturn = new List<Event>();
+
+        public List<Event> Get(DateTime date,int userId)
         {
-            this.loggedInUser = loggedInUser;
-            builder = new EventBuilder();
-            connection = DBConnection.GetMySqlConnection();
-            command.Connection = connection;
+            eventsToReturn.Clear();
+            this.date = date;
+            this.userId = userId;
+            Execute();
+            return eventsToReturn;
+        }
+
+        public override void ExecuteCommand()
+        {
             command.CommandText = "SELECT * FROM events WHERE date = @date AND userId = @userId ;";
-        }
-
-        public void SetSQLCommand(DateTime date)
-        {
             command.Parameters.AddWithValue("@date", date);
-            command.Parameters.AddWithValue("@userId", loggedInUser.UserID);
-            connection.OpenAsync();
-            reader = command.ExecuteReader();
-        }
-
-        public async Task<Event> GetEvent(DateTime date)
-        {
-            Event eventToReturn = null;
-            await Task.Run(() =>
+            command.Parameters.AddWithValue("@userId", userId);
+            using (MySqlDataReader reader = command.ExecuteReader())
             {
-                if (reader.ReadAsync().Result)
+                while(reader.Read())
                 {
-                    eventToReturn = builder.BuildEvent(reader);
+                    eventsToReturn.Add(builder.BuildEvent(reader));
                 }
-                else
-                {
-                    endOfData = true;
-                }
-            });
-            return eventToReturn;
+            }
         }
-
-        public void DisposeConnection()
-        {
-            reader.Dispose();
-            connection.Dispose();
-        }
-
-
     }
 }
