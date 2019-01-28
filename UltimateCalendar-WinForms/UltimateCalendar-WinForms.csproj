@@ -48,22 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DB\AddNewEventToDB.cs" />
-    <Compile Include="DB\DataBaseConnection.cs" />
-    <Compile Include="DB\DBQuery.cs" />
-    <Compile Include="DB\DBSelection.cs" />
-    <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\EventBuilder.cs" />
-    <Compile Include="Models\EventTypes.cs" />
-    <Compile Include="DB\GetEventsFromDB.cs" />
-    <Compile Include="DB\GetUserFromDB.cs" />
-    <Compile Include="Models\IDataHandler.cs" />
-    <Compile Include="Models\PasswordDecrypter.cs" />
-    <Compile Include="Models\PasswordEncrypter.cs" />
-    <Compile Include="DB\RegisterUserInDb.cs" />
-    <Compile Include="Models\SQLDataHandler.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserRegistration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\CalendarForm.cs">
@@ -126,6 +110,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\UltimateCalendarClassLibrary\UltimateCalendarClassLibrary\UltimateCalendarClassLibrary.csproj">
+      <Project>{9f4e1bc4-ac37-4f5e-aee5-3b7e3394851e}</Project>
+      <Name>UltimateCalendarClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

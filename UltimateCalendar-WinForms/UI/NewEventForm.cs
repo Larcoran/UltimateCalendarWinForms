@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UltimateCalendarWinForms.Models;
+using UltimateCalendarClassLibrary;
 
 namespace UltimateCalendar_WinForms.UI
 {

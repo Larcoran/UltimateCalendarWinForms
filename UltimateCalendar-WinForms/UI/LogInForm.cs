@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UltimateCalendar_WinForms;
 using UltimateCalendar_WinForms.UI;
-using UltimateCalendarWinForms.Models;
+using UltimateCalendarClassLibrary;
 
 namespace UltimateCalendarWinForms.UI
 {
@@ -29,7 +29,7 @@ namespace UltimateCalendarWinForms.UI
 
         private void registerBTN_Click(object sender, EventArgs e)
         {
-            RegisterForm register = new RegisterForm(new SQLDataHandler(),this);
+            RegisterForm register = new RegisterForm(dataHandler,this);
             register.Show();
             this.Hide();
         }
@@ -39,7 +39,7 @@ namespace UltimateCalendarWinForms.UI
             User user = new User();
             if(dataHandler.CredentialsCheck(emailTB.Text, passwordTB.Text, out user))
             {
-                CalendarForm calendar = new CalendarForm(new SQLDataHandler(),user);
+                CalendarForm calendar = new CalendarForm(dataHandler,user);
                 calendar.Show();
                 this.Hide();
             }

@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using UltimateCalendarWinForms.Models;
+using UltimateCalendarClassLibrary;
 
 namespace UltimateCalendar_WinForms.UI
 {
@@ -58,7 +51,7 @@ namespace UltimateCalendar_WinForms.UI
             newUser.Email = emailTB.Text;
             newUser.Password = passwordTB.Text;
             
-            dataHandler.RegisterUser(newUser);
+            MessageBox.Show(dataHandler.RegisterUser(newUser));
         }
     }
 }

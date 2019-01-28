@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UltimateCalendarWinForms.Models;
 using UltimateCalendarWinForms.UI;
+using UltimateCalendarClassLibrary;
+using System.Configuration;
 
 namespace UltimateCalendar_WinForms
 {
@@ -18,7 +19,7 @@ namespace UltimateCalendar_WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogInForm(new SQLDataHandler()));
+            Application.Run(new LogInForm(new SQLDataHandler(ConfigurationManager.ConnectionStrings["GCPMySqlDB"].ConnectionString)));
         }
     }
 }

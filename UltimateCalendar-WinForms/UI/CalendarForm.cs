@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UltimateCalendarWinForms.Models;
+using UltimateCalendarClassLibrary;
 
 namespace UltimateCalendar_WinForms.UI
 {
@@ -37,7 +37,7 @@ namespace UltimateCalendar_WinForms.UI
 
         private void addEventBTN_Click(object sender, EventArgs e)
         {
-            NewEventForm newEvent = new NewEventForm(new SQLDataHandler(),loggedUser);
+            NewEventForm newEvent = new NewEventForm(dataHandler,loggedUser);
             newEvent.ShowDialog();
         }
 
