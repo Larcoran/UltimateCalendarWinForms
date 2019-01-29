@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UltimateCalendar_WinForms;
 using UltimateCalendar_WinForms.UI;
-using UltimateCalendarClassLibrary;
 
 namespace UltimateCalendarWinForms.UI
 {
