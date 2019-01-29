@@ -1,46 +1,76 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
-using UltimateCalendar_WinForms.Models;
+using System.Text;
+using System.Web.Script.Serialization;
+using System.Windows.Forms;
 
 namespace UltimateCalendar_WinForms
 {
     public class InMemoryDataHandler : IDataHandler
     {
         List<Event> events = new List<Event>();
+        WebClient wc = new WebClient();
+
+        JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+
+
+        //HttpWebRequest http = (HttpWebRequest)WebRequest.Create(new Uri(""))
+
 
         public InMemoryDataHandler()
         {
-            //WebClient wc = new WebClient();
-            //string message = wc.DownloadString("http://localhost:51821/api/values");
-
-            //wc.UploadString()
-            //MessageBox.Show(message);
-            
+            wc.BaseAddress = "http://localhost:51821/UltimateCalendarDefault/";
+            wc.Encoding = new ASCIIEncoding();
         }
 
-        public void AddEvent(Event @event)
-        {
-            events.Add(@event);
-        }
 
         public bool CredentialsCheck(string email, string password, out User loggedInUser)
         {
-                WebClient wc = new WebClient();
-                string message = wc.DownloadString("http://localhost:51821/UltimateCalendarDefault/GetUser?email=larcoran18@gmail.com&password=Roflmao2204");
-                JsonToUserConverter converter = new JsonToUserConverter();
-                loggedInUser = converter.Convert(message);
-                return true;
+            string message = wc.DownloadString($"{wc.BaseAddress}GetUser?email={email}&password={password}");
+            loggedInUser = serializer.Deserialize<User>(message);
+            return true;
         }
 
-        public List<Event> GetEvents(DateTime dateForEvents, User userForEvents)
+        public List<Event> GetEvents(DateTime dateForEvents, User loggedInUser)
         {
+            string message = wc.DownloadString($"{wc.BaseAddress}GetEventsForUser?date={dateForEvents}&userId={loggedInUser.UserID}");
+            events.Clear();
+            events = serializer.Deserialize<List<Event>>(message);
             return events;
         }
 
         public string RegisterUser(User user)
         {
-            return "test";
+
+            wc.Headers.Add("Content-Type", "application/json");
+            wc.Headers.Add("Data-Type", "application/json");
+            string userJson = serializer.Serialize(user);
+            try
+            {
+                return wc.UploadString(wc.BaseAddress + "RegisterUser", "Post", userJson);
+            }
+            catch (Exception ex)
+            {
+                return "Couldn't register user. " + ex.Message;
+            }
+        }
+
+        public string AddEvent(Event eventToPost)
+        {
+
+            wc.Headers.Add("Content-Type", "application/json");
+            wc.Headers.Add("Data-Type", "application/json");
+            string eventJson = serializer.Serialize(eventToPost);
+            try
+            {
+                return wc.UploadString(wc.BaseAddress + "PostEvent", "Post", eventJson);
+            }
+            catch (Exception ex)
+            {
+                return "Couldn't register user. " + ex.Message;
+            }
         }
     }
 }

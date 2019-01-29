@@ -7,7 +7,7 @@ namespace UltimateCalendar_WinForms
     {
         List<Event> GetEvents(DateTime dateForEvents, User userForEvents);
 
-        void AddEvent(Event @event);
+        string AddEvent(Event @event);
 
         string RegisterUser(User user);
 

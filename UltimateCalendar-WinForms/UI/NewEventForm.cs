@@ -36,8 +36,7 @@ namespace UltimateCalendar_WinForms.UI
             newEvent.Description = descriptionTB.Text;
             newEvent.Type = eventTypeCB.Text;
             newEvent.UserId = loggedUser.UserID;
-            dataHandler.AddEvent(newEvent);
-            MessageBox.Show("Event successfully added !");
+            MessageBox.Show(dataHandler.AddEvent(newEvent));
             this.Close();
         }
 

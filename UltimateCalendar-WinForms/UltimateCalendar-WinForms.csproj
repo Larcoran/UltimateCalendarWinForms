@@ -53,8 +53,6 @@
     <Compile Include="Models\EventTypes.cs" />
     <Compile Include="Models\IDataHandler.cs" />
     <Compile Include="Models\InMemoryDataHandler.cs" />
-    <Compile Include="Models\JsonToEventConverter.cs" />
-    <Compile Include="Models\JsonToUserConverter.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
