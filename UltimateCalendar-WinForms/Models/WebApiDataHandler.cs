@@ -16,7 +16,7 @@ namespace UltimateCalendar_WinForms
         
         public WebApiDataHandler()
         {
-            wc.BaseAddress = "http://localhost:51821/UltimateCalendarDefault/";
+            wc.BaseAddress = "http://localhost:8080/UltimateCalendarDefault/";
         }
 
 

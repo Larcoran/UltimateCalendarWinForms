@@ -36,8 +36,14 @@ namespace UltimateCalendar_WinForms.UI
 
         private void addEventBTN_Click(object sender, EventArgs e)
         {
-            NewEventForm newEvent = new NewEventForm(dataHandler,loggedUser);
+            NewEventForm newEvent = new NewEventForm(dataHandler,loggedUser,calendar.SelectionStart);
+            newEvent.FormClosing += new FormClosingEventHandler(NewEvent_FormClosing);
             newEvent.ShowDialog();
+        }
+
+        private void NewEvent_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            populateEventsLB();
         }
 
         private void populateEventsLB()
@@ -48,6 +54,12 @@ namespace UltimateCalendar_WinForms.UI
             {
                 eventsLB.Items.Add(@event.ToString());
             }
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            Application.Exit();
         }
     }
 }
