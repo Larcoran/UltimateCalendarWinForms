@@ -18,7 +18,7 @@ namespace UltimateCalendar_WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogInForm(new InMemoryDataHandler()));
+            Application.Run(new LogInForm(new WebApiDataHandler()));
         }
     }
 }

@@ -7,22 +7,16 @@ using System.Windows.Forms;
 
 namespace UltimateCalendar_WinForms
 {
-    public class InMemoryDataHandler : IDataHandler
+    public class WebApiDataHandler : IDataHandler
     {
         List<Event> events = new List<Event>();
         WebClient wc = new WebClient();
 
         JavaScriptSerializer serializer = new JavaScriptSerializer();
-
-
-
-        //HttpWebRequest http = (HttpWebRequest)WebRequest.Create(new Uri(""))
-
-
-        public InMemoryDataHandler()
+        
+        public WebApiDataHandler()
         {
             wc.BaseAddress = "http://localhost:51821/UltimateCalendarDefault/";
-            wc.Encoding = new ASCIIEncoding();
         }
 
 
@@ -69,7 +63,7 @@ namespace UltimateCalendar_WinForms
             }
             catch (Exception ex)
             {
-                return "Couldn't register user. " + ex.Message;
+                return "Couldn't add the event. " + ex.Message;
             }
         }
     }

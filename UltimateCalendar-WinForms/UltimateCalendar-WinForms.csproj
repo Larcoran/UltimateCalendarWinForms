@@ -52,7 +52,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventTypes.cs" />
     <Compile Include="Models\IDataHandler.cs" />
-    <Compile Include="Models\InMemoryDataHandler.cs" />
+    <Compile Include="Models\WebApiDataHandler.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
